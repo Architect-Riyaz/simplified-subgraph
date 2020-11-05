@@ -48,7 +48,7 @@ This query fetches aggredated data from all Simplified pairs and tokens, to give
 
 ```graphql
 {
-  uniswapFactories(first: 1) {
+  simplifiedFactories(first: 1) {
     pairCount
     totalVolumeUSD
     totalLiquidityUSD
