@@ -1,4 +1,4 @@
-type simplifiedFactory @entity {
+type SimplifiedFactory @entity {
   # factory address
   id: ID!
 
@@ -214,7 +214,7 @@ type Bundle @entity {
 }
 
 # Data accumulated and condensed into day stats for all of Simplified
-type simplifiedDayData @entity {
+type SimplifiedDayData @entity {
   id: ID! # timestamp rounded to current day by dividing by 86400
   date: Int!
 

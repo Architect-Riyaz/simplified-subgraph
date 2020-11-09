@@ -9,23 +9,23 @@ export function updateSimplifiedDayData(event: EthereumEvent): SimplifiedDayData
   let timestamp = event.block.timestamp.toI32()
   let dayID = timestamp / 86400
   let dayStartTimestamp = dayID * 86400
-  let SimplifiedDayData = SimplifiedDayData.load(dayID.toString())
-  if (SimplifiedDayData === null) {
-    SimplifiedDayData = new SimplifiedDayData(dayID.toString())
-    SimplifiedDayData.date = dayStartTimestamp
-    SimplifiedDayData.dailyVolumeUSD = ZERO_BD
-    SimplifiedDayData.dailyVolumeETH = ZERO_BD
-    SimplifiedDayData.totalVolumeUSD = ZERO_BD
-    SimplifiedDayData.totalVolumeETH = ZERO_BD
-    SimplifiedDayData.dailyVolumeUntracked = ZERO_BD
+  let simplifiedDayData = SimplifiedDayData.load(dayID.toString())
+  if (simplifiedDayData === null) {
+    simplifiedDayData = new SimplifiedDayData(dayID.toString())
+    simplifiedDayData.date = dayStartTimestamp
+    simplifiedDayData.dailyVolumeUSD = ZERO_BD
+    simplifiedDayData.dailyVolumeETH = ZERO_BD
+    simplifiedDayData.totalVolumeUSD = ZERO_BD
+    simplifiedDayData.totalVolumeETH = ZERO_BD
+    simplifiedDayData.dailyVolumeUntracked = ZERO_BD
   }
 
-  SimplifiedDayData.totalLiquidityUSD = Simplified.totalLiquidityUSD
-  SimplifiedDayData.totalLiquidityETH = Simplified.totalLiquidityETH
-  SimplifiedDayData.txCount = Simplified.txCount
-  SimplifiedDayData.save()
+  simplifiedDayData.totalLiquidityUSD = Simplified.totalLiquidityUSD
+  simplifiedDayData.totalLiquidityETH = Simplified.totalLiquidityETH
+  simplifiedDayData.txCount = Simplified.txCount
+  simplifiedDayData.save()
 
-  return SimplifiedDayData as SimplifiedDayData
+  return simplifiedDayData as SimplifiedDayData
 }
 
 export function updatePairDayData(event: EthereumEvent): PairDayData {
